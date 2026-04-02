@@ -1,0 +1,5 @@
+{
+  "name": "Zet OS",
+  "description": "A powerful, customizable PC OS simulation with a Linux-Mac hybrid aesthetic, featuring a boot sequence, BIOS, and a suite of working apps.",
+  "requestFramePermissions": []
+}
