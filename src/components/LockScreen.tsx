@@ -142,7 +142,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({
       </div>
 
       <div className="relative z-10 text-white/20 text-[10px] uppercase font-bold tracking-[0.3em]">
-        Zeta OS Beta 1.0
+        Zeta OS Stable 1.0
       </div>
     </motion.div>
   );

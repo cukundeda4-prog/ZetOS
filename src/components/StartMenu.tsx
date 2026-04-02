@@ -74,7 +74,7 @@ export const StartMenu: React.FC<StartMenuProps> = ({ username, onOpenApp, onPow
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-medium">{username}</span>
-            <span className="text-[10px] text-white/40">Zeta OS Beta</span>
+            <span className="text-[10px] text-white/40">Zeta OS Stable</span>
           </div>
         </div>
         <div className="flex gap-2">

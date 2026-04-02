@@ -488,7 +488,7 @@ export const SettingsApp: React.FC<SettingsAppProps> = ({ config, onUpdateConfig
                 </div>
                 <div>
                   <div className="font-bold">System Updates</div>
-                  <div className="text-xs text-white/40">Your system is up to date (v1.0.0-beta)</div>
+                  <div className="text-xs text-white/40">Your system is up to date (v1.0.0-stable)</div>
                 </div>
               </div>
               <button className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm font-bold transition-all">
@@ -527,7 +527,7 @@ export const SettingsApp: React.FC<SettingsAppProps> = ({ config, onUpdateConfig
               <span className="text-4xl font-bold">Z</span>
             </div>
             <h2 className="text-3xl font-bold mb-2">Zeta OS</h2>
-            <p className="text-white/40 mb-8">Version 1.0.0 Beta (Unstable)</p>
+            <p className="text-white/40 mb-8">Version 1.0.0 Stable</p>
             <div className="max-w-md text-sm text-white/60 leading-relaxed mb-8">
               Zeta OS is an experimental operating system simulation built with React and Tailwind CSS.
               It aims to provide a seamless hybrid experience of Linux flexibility and Mac OS aesthetics.

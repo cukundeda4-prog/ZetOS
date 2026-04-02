@@ -38,7 +38,7 @@ export const Terminal: React.FC = () => {
         newHistory.push("Documents  Pictures  Downloads  Desktop  zet_config.sys");
         break;
       case 'version':
-        newHistory.push("Zeta OS 1.0 Beta (Unstable)");
+        newHistory.push("Zeta OS 1.0 Stable");
         break;
       case 'neofetch':
         newHistory.push(
@@ -50,7 +50,7 @@ export const Terminal: React.FC = () => {
           "$$    $$/   $$ |  $$    $$/ ",
           " $$$$$$/    $$/   $$$$$$$/  ",
           "----------------------------",
-          "OS: Zeta OS 1.0 Beta",
+          "OS: Zeta OS 1.0 Stable",
           "Kernel: 6.8.0-zeta-generic",
           "Uptime: 10 mins",
           "Shell: zsh 5.9",
@@ -185,7 +185,7 @@ export const CommunityApp: React.FC = () => {
       id: 1, 
       title: 'Welcome to Zeta OS', 
       date: 'April 2, 2026', 
-      content: 'Welcome to the official release of Zeta OS Beta 1.0! We are excited to have you here.', 
+      content: 'Welcome to the official release of Zeta OS Stable 1.0! We are excited to have you here.', 
       author: 'Zeka' 
     },
   ];

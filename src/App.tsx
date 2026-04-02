@@ -17,7 +17,7 @@ const STORAGE_KEY = 'zet_os_config';
 const ICONS_STORAGE_KEY = 'zet_os_desktop_icons';
 
 export default function App() {
-  const [osState, setOsState] = useState<'bios' | 'boot' | 'lock' | 'setup' | 'desktop' | 'off'>('boot');
+  const [osState, setOsState] = useState<'notice' | 'bios' | 'boot' | 'lock' | 'setup' | 'desktop' | 'off'>('notice');
   const [config, setConfig] = useState<OSConfig>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -173,6 +173,48 @@ export default function App() {
     setDesktopIcons(prev => [...prev, newIcon]);
     setContextMenu(null);
   };
+
+  const handleEnterFullscreen = () => {
+    const element = document.documentElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    }
+    setOsState('boot');
+  };
+
+  if (osState === 'notice') {
+    return (
+      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center text-center p-8 z-[10000]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-md"
+        >
+          <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
+            <LayoutGrid size={40} className="text-white" />
+          </div>
+          <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">Welcome to Zeta OS</h1>
+          <p className="text-white/60 mb-12 leading-relaxed">
+            For the most immersive experience, we recommend using fullscreen mode.
+          </p>
+          <div className="flex flex-col gap-4">
+            <button
+              onClick={handleEnterFullscreen}
+              className="w-full py-4 bg-white text-black rounded-2xl font-bold hover:bg-white/90 transition-all active:scale-95"
+            >
+              Enter Fullscreen
+            </button>
+            <button
+              onClick={() => setOsState('boot')}
+              className="w-full py-4 bg-white/5 text-white/60 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95"
+            >
+              Continue in Window
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   if (osState === 'off') {
     return (
