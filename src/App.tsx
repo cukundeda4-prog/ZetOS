@@ -13,54 +13,67 @@ import { SettingsApp } from './components/SettingsApp';
 import { WidgetRenderer } from './components/Widgets';
 import { cn } from './lib/utils';
 
+const STORAGE_KEY = 'zet_os_config';
+const ICONS_STORAGE_KEY = 'zet_os_desktop_icons';
+
 export default function App() {
   const [osState, setOsState] = useState<'bios' | 'boot' | 'lock' | 'setup' | 'desktop' | 'off'>('boot');
-  const [config, setConfig] = useState<OSConfig>({
-    bootStyle: 'classic',
-    wallpaper: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070',
-    lockWallpaper: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070',
-    lockClockFont: 'font-sans',
-    theme: 'dark',
-    username: 'User',
-    isPasswordEnabled: false,
-    isSetupComplete: false,
-    appIcons: {
-      terminal: 'Terminal',
-      notepad: 'FileText',
-      appstore: 'ShoppingBag',
-      browser: 'Globe',
-      settings: 'Settings',
-      assistant: 'MessageSquare',
-      files: 'Folder',
-      community: 'Users',
-    },
-    dockSize: 'medium',
-    dockWidth: 80,
-    dockStyle: 'glass',
-    dockAutoHide: false,
-    dockColor: '#000000',
-    dockIconsVisible: {
-      terminal: true,
-      notepad: true,
-      appstore: true,
-      browser: true,
-      settings: true,
-      assistant: true,
-      files: true,
-      community: true,
-    },
-    iconShape: 'rounded',
-    iconColor: '#3b82f6',
-    iconTranslucent: false,
-    showDesktopIcons: true,
-    statusBarStyle: 'glass',
-    statusBarColor: '#000000',
-    widgets: [
-      { id: 'clock', enabled: true, position: { x: 0, y: 0 }, size: 'medium' },
-      { id: 'weather', enabled: true, position: { x: 0, y: 0 }, size: 'small' },
-      { id: 'calendar', enabled: false, position: { x: 0, y: 0 }, size: 'small' },
-      { id: 'stats', enabled: false, position: { x: 0, y: 0 }, size: 'medium' },
-    ],
+  const [config, setConfig] = useState<OSConfig>(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to load config", e);
+      }
+    }
+    return {
+      bootStyle: 'classic',
+      wallpaper: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070',
+      lockWallpaper: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2070',
+      lockClockFont: 'font-sans',
+      theme: 'dark',
+      username: 'User',
+      isPasswordEnabled: false,
+      isSetupComplete: false,
+      appIcons: {
+        terminal: 'Terminal',
+        notepad: 'FileText',
+        appstore: 'ShoppingBag',
+        browser: 'Globe',
+        settings: 'Settings',
+        assistant: 'MessageSquare',
+        files: 'Folder',
+        community: 'Users',
+      },
+      dockSize: 'medium',
+      dockWidth: 80,
+      dockStyle: 'glass',
+      dockAutoHide: false,
+      dockColor: '#000000',
+      dockIconsVisible: {
+        terminal: true,
+        notepad: true,
+        appstore: true,
+        browser: true,
+        settings: true,
+        assistant: true,
+        files: true,
+        community: true,
+      },
+      iconShape: 'rounded',
+      iconColor: '#3b82f6',
+      iconTranslucent: false,
+      showDesktopIcons: true,
+      statusBarStyle: 'glass',
+      statusBarColor: '#000000',
+      widgets: [
+        { id: 'clock', enabled: true, position: { x: 0, y: 0 }, size: 'medium' },
+        { id: 'weather', enabled: true, position: { x: 0, y: 0 }, size: 'small' },
+        { id: 'calendar', enabled: false, position: { x: 0, y: 0 }, size: 'small' },
+        { id: 'stats', enabled: false, position: { x: 0, y: 0 }, size: 'medium' },
+      ],
+    };
   });
 
   const [windows, setWindows] = useState<WindowState[]>([]);
@@ -68,11 +81,29 @@ export default function App() {
   const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
   const [time, setTime] = useState(new Date());
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; visible: boolean } | null>(null);
-  const [desktopIcons, setDesktopIcons] = useState<{ id: string; appId: AppId; label: string }[]>([
-    { id: '1', appId: 'files', label: 'My Files' },
-    { id: '2', appId: 'terminal', label: 'Terminal' },
-    { id: '3', appId: 'notepad', label: 'Notes' },
-  ]);
+  const [desktopIcons, setDesktopIcons] = useState<{ id: string; appId: AppId; label: string }[]>(() => {
+    const saved = localStorage.getItem(ICONS_STORAGE_KEY);
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to load desktop icons", e);
+      }
+    }
+    return [
+      { id: '1', appId: 'files', label: 'My Files' },
+      { id: '2', appId: 'terminal', label: 'Terminal' },
+      { id: '3', appId: 'notepad', label: 'Notes' },
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+  }, [config]);
+
+  useEffect(() => {
+    localStorage.setItem(ICONS_STORAGE_KEY, JSON.stringify(desktopIcons));
+  }, [desktopIcons]);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);

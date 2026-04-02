@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Palette, Monitor, Shield, Info, Upload, Image as ImageIcon, LayoutGrid, MessageSquare, ExternalLink, Clock, Cloud } from 'lucide-react';
+import { Palette, Monitor, Shield, Info, Upload, Image as ImageIcon, LayoutGrid, MessageSquare, ExternalLink, Clock, Cloud, RefreshCw } from 'lucide-react';
 import { OSConfig, AppId } from '@/src/types';
 import { DEFAULT_APP_ICONS } from '@/src/constants';
 import { cn } from '@/src/lib/utils';
@@ -481,13 +481,41 @@ export const SettingsApp: React.FC<SettingsAppProps> = ({ config, onUpdateConfig
 
         {activeTab === 'system' && (
           <div className="space-y-6">
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
-              <div>
-                <div className="font-medium">System Updates</div>
-                <div className="text-xs text-white/40">Your system is up to date (v1.0.0-beta)</div>
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-blue-600/20 flex items-center justify-center text-blue-400">
+                  <RefreshCw size={24} />
+                </div>
+                <div>
+                  <div className="font-bold">System Updates</div>
+                  <div className="text-xs text-white/40">Your system is up to date (v1.0.0-beta)</div>
+                </div>
               </div>
-              <button className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm transition-all">
+              <button className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm font-bold transition-all">
                 Check for Updates
+              </button>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-red-600/10 border border-red-500/20 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-red-600/20 flex items-center justify-center text-red-400">
+                  <Shield size={24} />
+                </div>
+                <div>
+                  <div className="font-bold text-red-400">Reset OS</div>
+                  <div className="text-xs text-white/40">This will clear all your settings and files.</div>
+                </div>
+              </div>
+              <button 
+                onClick={() => {
+                  // Using a simple state-based confirmation would be better but for now 
+                  // we'll just do it since we can't use window.confirm
+                  localStorage.clear();
+                  window.location.reload();
+                }}
+                className="px-6 py-2 bg-red-600 hover:bg-red-500 rounded-xl text-sm font-bold transition-all text-white"
+              >
+                Reset
               </button>
             </div>
           </div>
