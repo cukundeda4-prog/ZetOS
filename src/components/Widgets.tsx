@@ -129,7 +129,7 @@ export const CalendarWidget: React.FC<{ size: 'small' | 'medium' | 'large' }> = 
         <div className="mt-4 space-y-2 border-t border-black/5 pt-4">
           <div className="flex items-center gap-2">
             <div className="w-1 h-4 bg-blue-500 rounded-full" />
-            <div className="text-xs font-bold">Zet OS Beta Launch</div>
+            <div className="text-xs font-bold">Zeta OS Beta Launch</div>
           </div>
           <div className="text-[10px] text-black/40 ml-3">10:00 AM - 11:00 AM</div>
         </div>

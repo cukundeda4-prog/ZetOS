@@ -13,13 +13,13 @@ export const BIOS: React.FC<BIOSProps> = ({ onBoot }) => {
 
   useEffect(() => {
     const sequence = [
-      "ZET BIOS v1.0.4 (C) 2026 Zet Corp.",
+      "ZETA BIOS v1.0.4 (C) 2026 Zeta Corp.",
       "CPU: Quantum Core i9-15900K @ 6.2GHz",
       "Memory Test: 65536MB OK",
       "Detecting Storage Devices...",
-      "SATA 1: ZetSSD 2TB (SMART OK)",
+      "SATA 1: ZetaSSD 2TB (SMART OK)",
       "Checking for Boot Media...",
-      "Booting from ZetOS Partition...",
+      "Booting from ZetaOS Partition...",
     ];
 
     let i = 0;
@@ -59,7 +59,7 @@ export const BIOS: React.FC<BIOSProps> = ({ onBoot }) => {
             className="max-w-4xl mx-auto border border-[#00FF00] h-full flex flex-col"
           >
             <div className="bg-[#00FF00] text-black px-4 py-1 font-bold flex justify-between">
-              <span>ZET BIOS SETUP UTILITY</span>
+              <span>ZETA BIOS SETUP UTILITY</span>
               <span>v1.0.4</span>
             </div>
             
@@ -91,7 +91,7 @@ export const BIOS: React.FC<BIOSProps> = ({ onBoot }) => {
                     </div>
                     <div className="flex justify-between border-b border-[#00FF00]/30 pb-1">
                       <span>BIOS Version</span>
-                      <span>Zet-1.0.4-2026</span>
+                      <span>Zeta-1.0.4-2026</span>
                     </div>
                     <div className="flex justify-between border-b border-[#00FF00]/30 pb-1">
                       <span>Total Memory</span>
@@ -123,7 +123,7 @@ export const BIOS: React.FC<BIOSProps> = ({ onBoot }) => {
                   <div className="space-y-2">
                     <div className="flex justify-between border-b border-[#00FF00]/30 pb-1">
                       <span>Boot Priority #1</span>
-                      <span>[ZetSSD 2TB]</span>
+                      <span>[ZetaSSD 2TB]</span>
                     </div>
                     <div className="flex justify-between border-b border-[#00FF00]/30 pb-1">
                       <span>Boot Priority #2</span>
@@ -151,13 +151,13 @@ export const BIOS: React.FC<BIOSProps> = ({ onBoot }) => {
               </div>
               <div className="border-l border-[#00FF00] p-4 text-xs opacity-70">
                 <p className="mb-4">Use [Arrow Keys] to navigate, [Enter] to select, [ESC] to go back.</p>
-                <p>Zet OS BIOS Utility provides advanced hardware configuration options.</p>
+                <p>Zeta OS BIOS Utility provides advanced hardware configuration options.</p>
               </div>
             </div>
             
             <div className="bg-[#00FF00] text-black px-4 py-1 text-[10px] flex justify-between">
               <span>[F1] Help | [F5] Defaults | [F10] Save & Exit</span>
-              <span>Zet Corp.</span>
+              <span>Zeta Corp.</span>
             </div>
           </motion.div>
         )}
@@ -266,7 +266,7 @@ export const BootAnimation: React.FC<{ style: 'classic' | 'hacker' | 'minimal', 
             animate={{ opacity: 1 }}
             className="text-3xl font-light tracking-[0.8em] text-white"
           >
-            ZET OS
+            ZETA OS
           </motion.h1>
         )}
       </div>

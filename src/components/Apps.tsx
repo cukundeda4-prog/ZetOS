@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Send, User, ShoppingBag, Globe, MessageSquare, Users, Bell, ExternalLink, Search, CheckCircle, Download, Star } from 'lucide-react';
 
 export const Terminal: React.FC = () => {
-  const [history, setHistory] = useState<string[]>(["Welcome to Zet Shell v1.0", "Type 'help' for commands."]);
+  const [history, setHistory] = useState<string[]>(["Welcome to Zeta Shell v1.0", "Type 'help' for commands."]);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +29,7 @@ export const Terminal: React.FC = () => {
         setInput("");
         return;
       case 'whoami':
-        newHistory.push("user@zet-os");
+        newHistory.push("user@zeta-os");
         break;
       case 'date':
         newHistory.push(new Date().toString());
@@ -38,7 +38,7 @@ export const Terminal: React.FC = () => {
         newHistory.push("Documents  Pictures  Downloads  Desktop  zet_config.sys");
         break;
       case 'version':
-        newHistory.push("Zet OS 1.0 Beta (Unstable)");
+        newHistory.push("Zeta OS 1.0 Beta (Unstable)");
         break;
       case 'neofetch':
         newHistory.push(
@@ -50,13 +50,13 @@ export const Terminal: React.FC = () => {
           "$$    $$/   $$ |  $$    $$/ ",
           " $$$$$$/    $$/   $$$$$$$/  ",
           "----------------------------",
-          "OS: Zet OS 1.0 Beta",
-          "Kernel: 6.8.0-zet-generic",
+          "OS: Zeta OS 1.0 Beta",
+          "Kernel: 6.8.0-zeta-generic",
           "Uptime: 10 mins",
           "Shell: zsh 5.9",
           "Resolution: 1920x1080",
-          "DE: Zet-DE",
-          "WM: ZetWM",
+          "DE: Zeta-DE",
+          "WM: ZetaWM",
           "CPU: Quantum Core i9",
           "Memory: 12GB / 64GB"
         );
@@ -75,7 +75,7 @@ export const Terminal: React.FC = () => {
         <div key={i} className="whitespace-pre-wrap mb-1">{line}</div>
       ))}
       <form onSubmit={handleCommand} className="flex gap-2">
-        <span className="text-blue-400">zet@os:~$</span>
+        <span className="text-blue-400">zeta@os:~$</span>
         <input
           autoFocus
           className="bg-transparent border-none outline-none flex-1 text-[#00ff00]"
@@ -107,7 +107,7 @@ export const Notepad: React.FC = () => {
 };
 
 export const Browser: React.FC = () => {
-  const [url, setUrl] = useState("https://www.bing.com/search?q=Zet+OS");
+  const [url, setUrl] = useState("https://www.bing.com/search?q=Zeta+OS");
   const [inputUrl, setInputUrl] = useState("bing.com");
 
   const handleGo = (e: React.FormEvent) => {
@@ -163,8 +163,8 @@ export const AppStore: React.FC = () => {
       <h1 className="text-4xl font-bold mb-4">App Store</h1>
       <p className="text-xl text-white/60 mb-8">Coming Soon</p>
       <div className="max-w-md text-sm text-white/40 leading-relaxed">
-        We are currently curating the best applications for Zet OS. 
-        Stay tuned for the official launch of the Zet App Store.
+        We are currently curating the best applications for Zeta OS. 
+        Stay tuned for the official launch of the Zeta App Store.
       </div>
     </div>
   );
@@ -176,16 +176,16 @@ export const CommunityApp: React.FC = () => {
       id: 2, 
       title: 'Phone OS coming out?', 
       date: 'April 2, 2026', 
-      content: 'Hey everyone! Jafko here. I am thinking about starting work on a Zet Phone OS. What do you think? You can vote to come out or no on our Discord!', 
+      content: 'Hey everyone! Jafko here. I am thinking about starting work on a Zeta Phone OS. What do you think? You can vote to come out or no on our Discord!', 
       author: 'Jafko',
       link: 'https://discord.gg/94yw2Tsx8S',
       linkText: 'Vote on Discord'
     },
     { 
       id: 1, 
-      title: 'Welcome to Zet OS', 
+      title: 'Welcome to Zeta OS', 
       date: 'April 2, 2026', 
-      content: 'Welcome to the official release of Zet OS Beta 1.0! We are excited to have you here.', 
+      content: 'Welcome to the official release of Zeta OS Beta 1.0! We are excited to have you here.', 
       author: 'Zeka' 
     },
   ];
@@ -194,7 +194,7 @@ export const CommunityApp: React.FC = () => {
     <div className="h-full bg-[#121212] text-white overflow-auto">
       <div className="h-48 bg-gradient-to-r from-blue-600 to-purple-600 p-8 flex flex-col justify-end">
         <h1 className="text-4xl font-bold mb-2">Community</h1>
-        <p className="text-white/80">Stay updated with the latest Zet OS news.</p>
+        <p className="text-white/80">Stay updated with the latest Zeta OS news.</p>
       </div>
       <div className="p-8 space-y-6">
         {updates.map((update) => (
@@ -230,13 +230,13 @@ export const CommunityApp: React.FC = () => {
 
 export const Assistant: React.FC = () => {
   const [history, setHistory] = useState<{ text: string, type: 'bot' | 'user' }[]>([
-    { text: "Hello! I am your Zet Assistant. How can I help you today?", type: 'bot' }
+    { text: "Hello! I am your Zeta Assistant. How can I help you today?", type: 'bot' }
   ]);
 
   const options = [
     {
-      label: "What is Zet OS?",
-      response: "Zet OS is a hybrid operating system simulation designed for speed and beauty. It combines Linux power with Mac aesthetics.",
+      label: "What is Zeta OS?",
+      response: "Zeta OS is a hybrid operating system simulation designed for speed and beauty. It combines Linux power with Mac aesthetics.",
     },
     {
       label: "How to customize?",
@@ -244,7 +244,7 @@ export const Assistant: React.FC = () => {
     },
     {
       label: "Who are the developers?",
-      response: "Zet OS was founded by Zeka and is primarily developed by Jafko.",
+      response: "Zeta OS was founded by Zeka and is primarily developed by Jafko.",
     }
   ];
 

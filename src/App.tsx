@@ -224,7 +224,7 @@ export default function App() {
       style={config.statusBarStyle === 'solid' ? { backgroundColor: config.statusBarColor } : {}}
       >
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsStartMenuOpen(!isStartMenuOpen)} className="hover:text-white/70 font-bold">Zet OS</button>
+          <button onClick={() => setIsStartMenuOpen(!isStartMenuOpen)} className="hover:text-white/70 font-bold">Zeta OS</button>
           <div className="flex gap-4 text-white/60">
             <button className="hover:text-white">File</button>
             <button className="hover:text-white">Edit</button>

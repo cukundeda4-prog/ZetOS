@@ -22,7 +22,7 @@ export const SetupWizard: React.FC<SetupWizardProps> = ({ onComplete }) => {
 
   const steps = [
     {
-      title: "Welcome to Zet OS",
+      title: "Welcome to Zeta OS",
       description: "Let's get your new system ready for use. This will only take a moment.",
       icon: <Monitor className="w-12 h-12 text-blue-500" />,
     },

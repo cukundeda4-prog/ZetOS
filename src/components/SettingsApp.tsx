@@ -526,10 +526,10 @@ export const SettingsApp: React.FC<SettingsAppProps> = ({ config, onUpdateConfig
             <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 shadow-2xl">
               <span className="text-4xl font-bold">Z</span>
             </div>
-            <h2 className="text-3xl font-bold mb-2">Zet OS</h2>
+            <h2 className="text-3xl font-bold mb-2">Zeta OS</h2>
             <p className="text-white/40 mb-8">Version 1.0.0 Beta (Unstable)</p>
             <div className="max-w-md text-sm text-white/60 leading-relaxed mb-8">
-              Zet OS is an experimental operating system simulation built with React and Tailwind CSS.
+              Zeta OS is an experimental operating system simulation built with React and Tailwind CSS.
               It aims to provide a seamless hybrid experience of Linux flexibility and Mac OS aesthetics.
             </div>
             <div className="grid grid-cols-2 gap-8 text-left w-full max-w-md p-6 rounded-2xl bg-white/5 border border-white/10 mb-8">
